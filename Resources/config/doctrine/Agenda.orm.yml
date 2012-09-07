@@ -1,0 +1,19 @@
+AltCloud\Instance3EventBundle\Entity\Agenda:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 255
+    description:
+      type: text
+  lifecycleCallbacks: {  }
+  oneToMany:
+    events:
+      targetEntity: Event
+      mappedBy: agenda

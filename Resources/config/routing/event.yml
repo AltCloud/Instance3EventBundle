@@ -1,0 +1,30 @@
+admin_event:
+    pattern:  /
+    defaults: { _controller: "ACInst3EventBundle:Event:index" }
+
+admin_event_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3EventBundle:Event:show" }
+
+admin_event_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3EventBundle:Event:new" }
+
+admin_event_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3EventBundle:Event:create" }
+    requirements: { _method: post }
+
+admin_event_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3EventBundle:Event:edit" }
+
+admin_event_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3EventBundle:Event:update" }
+    requirements: { _method: post }
+
+admin_event_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3EventBundle:Event:delete" }
+    requirements: { _method: post }

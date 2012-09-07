@@ -1,0 +1,29 @@
+AltCloud\Instance3EventBundle\Entity\Event:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 255
+    description:
+      type: text
+    start:
+      type: datetimetz
+    end:
+      type: datetimetz
+    venue:
+      type: string
+      length: 255
+  lifecycleCallbacks: {  }
+  manyToOne:
+    media:
+      targetEntity: AltCloud\Instance3MediaBundle\Entity\Media
+    gallery:
+      targetEntity: AltCloud\Instance3MediaBundle\Entity\Gallery
+    agenda:
+      targetEntity: AltCloud\Instance3EventBundle\Entity\Agenda

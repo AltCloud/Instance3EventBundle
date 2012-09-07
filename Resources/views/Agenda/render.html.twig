@@ -1,0 +1,6 @@
+{% extends tpl %}
+
+{% block content_in %}
+	{% include "ACInst3EventBundle:Agenda:renderPartial.html.twig" with {'agenda': agenda, 'displayoptions' : displayoptions} %}
+	{% include "ACInst3EventBundle:Event:listPartial.html.twig" with {'events': agenda.events, 'displayoptions' : displayoptions} %}
+{% endblock %}

@@ -1,0 +1,15 @@
+ACInst3EventBundle_admin_event:
+    resource: "@ACInst3EventBundle/Resources/config/routing/event.yml"
+    prefix:   /admin/event
+    
+event_render:
+    pattern:  /event/{id}
+    defaults: { _controller: ACInst3EventBundle:Event:render }
+
+ACInst3EventBundle_admin_agenda:
+    resource: "@ACInst3EventBundle/Resources/config/routing/agenda.yml"
+    prefix:   /admin/agenda
+    
+agenda_render:
+    pattern:  /agenda/{id}
+    defaults: { _controller: ACInst3EventBundle:Agenda:render }

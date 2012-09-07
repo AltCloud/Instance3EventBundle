@@ -1,0 +1,44 @@
+{% if displayoptions.eventdisplayoptions is defined %}
+	{% set eventdisplayoptions = displayoptions.eventdisplayoptions %}
+{% else %}
+	{% set eventdisplayoptions = false %}
+{% endif %}
+
+{% if eventdisplayoptions.showdesc is defined %}
+	{% set eventshowdesc = eventdisplayoptions.showdesc %}
+{% else %}
+	{% set eventshowdesc = false %}
+{% endif %}
+
+{% if eventdisplayoptions.linktitle is defined %}
+	{% set eventlinktitle = eventdisplayoptions.linktitle %}
+{% else %}
+	{% set eventlinktitle = true %}
+{% endif %}
+{% if eventdisplayoptions.titletag is defined %}
+	{% set eventtitletag = eventdisplayoptions.titletag %}
+{% else %}
+	{% set eventtitletag = 'b' %}
+{% endif %}
+
+{% if eventdisplayoptions.linkmask is defined %}
+	{% set eventlinkmask = eventdisplayoptions.linkmask %}
+{% elseif displayoptions.linkmask is defined %}
+	{% set eventlinkmask = displayoptions.linkmask %}
+{% else %}
+	{% set eventlinkmask = path('event_render', { 'id': 'PLCHLDR' }) %}
+{% endif %}
+
+{% set eventDispOpts = {'showdesc': eventshowdesc, 'linktitle': eventlinktitle, 'titletag': eventtitletag, 'linkmask': eventlinkmask } %}
+
+<table class="records_list">
+	<tbody>
+	{% for entity in events %}
+		<tr>
+			<td>
+				{% include "ACInst3EventBundle:Event:renderPartial.html.twig" with {'event': entity, 'displayoptions' : eventDispOpts} %}
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>

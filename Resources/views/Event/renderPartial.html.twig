@@ -1,0 +1,43 @@
+{% if displayoptions.showdesc is defined %}	
+	{% set showdesc 		= displayoptions.showdesc %}
+{% else %}
+	{% set showdesc 		= true %}
+{% endif %}
+
+{% if displayoptions.linktitle is defined %}
+	{% set linktitle 		= displayoptions.linktitle %}
+{% else %}
+	{% set linktitle 		= false %}
+{% endif %}
+{% if displayoptions.titletag is defined %}
+	{% set titletag 		= displayoptions.titletag %}
+{% else %}
+	{% set titletag 		= 'h2' %}
+{% endif %}
+
+{% if displayoptions.linkmask is defined %}
+	{% set linkmask = displayoptions.linkmask %}
+{% else %}
+	{% set linkmask = path('event_render', { 'id': 'PLCHLDR' }) %}
+{% endif %}
+
+{% if linktitle == true %}<a href="{{ linkmask|replace({'PLCHLDR': event.id}) }}">{% endif %}
+	<{{titletag}}>{{ event.title }}</{{titletag}}>
+{% if linktitle == true %}</a>{% endif %}
+
+{% if displayoptions.mediadisplayoptions is defined %}
+	{% set eventMediaDispOpts = displayoptions.mediadisplayoptions %}
+{% else %}
+	{% set eventMediaDispOpts = {'formatmaxwidth': 200 , 'formatmaxheight': 300, 'formatalign': 'left' } %}
+{% endif %}
+
+{% if event.media %}
+	{% include "ACInst3MediaBundle:Format:display.html.twig" with {'format': event.media.thumbnail, 'displayoptions': eventMediaDispOpts} %}
+{% endif %}
+
+<p><b>{{ event.start|date("d-m-Y") }} - {{ event.end|date("d-m-Y") }}</b></p>
+<p><b>{{ event.venue }}</b></p>
+
+{% if showdesc == true %}
+<p>{{ event.description }}</p>
+{% endif %}

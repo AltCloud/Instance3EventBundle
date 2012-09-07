@@ -1,0 +1,30 @@
+admin_agenda:
+    pattern:  /
+    defaults: { _controller: "ACInst3EventBundle:Agenda:index" }
+
+admin_agenda_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3EventBundle:Agenda:show" }
+
+admin_agenda_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3EventBundle:Agenda:new" }
+
+admin_agenda_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3EventBundle:Agenda:create" }
+    requirements: { _method: post }
+
+admin_agenda_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3EventBundle:Agenda:edit" }
+
+admin_agenda_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3EventBundle:Agenda:update" }
+    requirements: { _method: post }
+
+admin_agenda_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3EventBundle:Agenda:delete" }
+    requirements: { _method: post }
