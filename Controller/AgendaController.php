@@ -29,8 +29,6 @@ class AgendaController extends Controller
 		
         	return $this->render('ACInst3EventBundle:Agenda:renderPartial.html.twig', array(
     							 'agenda' => $agenda, 
-    							 'tpl' => $tpl, 
-    							 'node' => $node,
     							 'displayoptions' => $displayoptions));
     	}
     /**
