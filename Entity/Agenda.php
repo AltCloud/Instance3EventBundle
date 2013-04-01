@@ -103,4 +103,14 @@ class Agenda
     {
         return $this->events;
     }
+
+    /**
+     * Remove events
+     *
+     * @param \AltCloud\Instance3EventBundle\Entity\Event $events
+     */
+    public function removeEvent(\AltCloud\Instance3EventBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
 }
